@@ -25,10 +25,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+    ffmpeg_demuxing_decode.cpp \
+    logfromqt.cpp
 
 HEADERS += \
-        mainwindow.h
+    ffmpeg_demuxing_decode.h \
+    logfromqt.h
 
 FORMS += \
         mainwindow.ui
+
+INCLUDEPATH += $$PWD/../Library/include \
+                $$PWD/../Library/include/opencv \
+                $$PWD/../Library/include/opencv2
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../Library/lib/ -lopencv_world346
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../Library/lib/ -lopencv_world346d
+else:unix: LIBS += -L$$PWD/../Library/lib/ -lopencv_world346
+INCLUDEPATH += $$PWD/../Library
+DEPENDPATH += $$PWD/../Library
+
+unix|win32: LIBS += -L$$PWD/../Library/lib/ -lpthreadVC2
+unix|win32: LIBS += -L$$PWD/../Library/lib/ -ldetectNet
+unix|win32: LIBS += -L$$PWD/../Library/lib/ -lavcodec -lavformat -lavutil -lavdevice -lavfilter -lpostproc -lswresample -lswscale
