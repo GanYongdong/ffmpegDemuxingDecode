@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
     }
 
     while(1) {
+        int nn = 0;
         cv::Mat frame = ff1.demux_decode_a_frame(nn);
         if (!frame.empty()) {
             cv::imshow("frame", frame);

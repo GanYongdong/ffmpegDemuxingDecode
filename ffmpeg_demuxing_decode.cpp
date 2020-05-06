@@ -26,7 +26,6 @@ void ffmpegDemuxingDecode::setLog(bool _isEnable)
             qDebug() << "================================" << endl;
             qDebug() << "ffmpegDemuxingDecode.setLog -- Enable log file" << endl;
         }
-
     }
 }
 

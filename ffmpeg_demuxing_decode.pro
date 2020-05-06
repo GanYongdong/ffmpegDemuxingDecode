@@ -32,8 +32,7 @@ HEADERS += \
     ffmpeg_demuxing_decode.h \
     logfromqt.h
 
-FORMS += \
-        mainwindow.ui
+FORMS +=
 
 INCLUDEPATH += $$PWD/../Library/include \
                 $$PWD/../Library/include/opencv \
